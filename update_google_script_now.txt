@@ -1,0 +1,62 @@
+═══════════════════════════════════════════════════════════════
+CRITICAL: UPDATE YOUR GOOGLE APPS SCRIPT NOW
+═══════════════════════════════════════════════════════════════
+
+Your Netlify site is deployed and working at:
+https://jactivities.netlify.app
+
+But your Google Apps Script is still using OLD redirect URLs.
+That's why you see "Site not found" - it's redirecting to the wrong place.
+
+═══════════════════════════════════════════════════════════════
+STEP-BY-STEP INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+1. Open this URL in your browser:
+   https://script.google.com/home
+
+2. Find and click on your script in the list
+   (It should be the one you've been using for the form)
+
+3. In the script editor, find these two lines near the top:
+   var HOME_URL = '...';
+   var SUCCESS_URL = '...';
+
+4. Replace them with EXACTLY these lines:
+   var HOME_URL = 'https://jactivities.netlify.app';
+   var SUCCESS_URL = 'https://jactivities.netlify.app/success';
+
+5. Click the "Deploy" button (top right)
+
+6. Select "Manage deployments"
+
+7. Click the EDIT icon (pencil) next to your existing deployment
+
+8. Under "Version", select "New version"
+
+9. Click "Deploy"
+
+10. Wait for it to say "Deployment successful"
+
+═══════════════════════════════════════════════════════════════
+AFTER YOU UPDATE THE SCRIPT
+═══════════════════════════════════════════════════════════════
+
+Test from your iPhone:
+1. Go to: https://jactivities.netlify.app
+2. Fill out the form
+3. Submit
+4. It should now redirect to the success page correctly!
+
+═══════════════════════════════════════════════════════════════
+WHY THIS IS NECESSARY
+═══════════════════════════════════════════════════════════════
+
+Your form submits to Google Apps Script → Google Apps Script saves 
+to Google Sheets → Google Apps Script redirects to success page.
+
+If the redirect URL in Google Apps Script is wrong, you'll see 
+"Site not found" even though the data was saved to Google Sheets.
+
+The Netlify deployment is DONE. You just need to update the 
+Google Apps Script redirect URLs and redeploy it.

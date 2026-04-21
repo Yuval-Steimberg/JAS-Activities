@@ -1,0 +1,61 @@
+// This is the code that should be in your Google Apps Script
+// Go to: https://script.google.com/home
+// Find your script and replace the doPost function with this code
+
+function doPost(e) {
+  try {
+    // Your Google Sheet ID (replace with your actual sheet ID)
+    const sheetId = 'YOUR_SHEET_ID_HERE';
+    const sheet = SpreadsheetApp.openById(sheetId).getActiveSheet();
+    
+    // Get form data
+    const params = e.parameter;
+    
+    // Create row data array
+    const rowData = [
+      new Date(), // Timestamp
+      params.org_type || '',
+      params.org_exact_name || '',
+      params.org_department || '',
+      params.org_id || '',
+      params.contact_name || '',
+      params.contact_role || '',
+      params.contact_email || '',
+      params.contact_phone || '',
+      params.activities || '',
+      params.act_salon_details || '',
+      params.act_other_text || '',
+      params.visit_people || '',
+      params.visit_dates || '',
+      params.visit_hours || '',
+      params.gift || '',
+      params.gift_budget || '',
+      params.catering || '',
+      params.catering_notes || '',
+      params.payment || '',
+      params.payment_invoice_name || '',
+      params.payment_invoice_email || '',
+      params.notes || ''
+    ];
+    
+    // Append data to sheet
+    sheet.appendRow(rowData);
+    
+    // IMPORTANT: Return redirect to your success page
+    // Replace with your actual Netlify URL
+    const successUrl = 'https://YOUR-SITE-NAME.netlify.app/success.html';
+    
+    return HtmlService.createHtmlOutput(
+      '<script>window.top.location.href = "' + successUrl + '";</script>'
+    );
+    
+  } catch (error) {
+    Logger.log('Error: ' + error.toString());
+    return ContentService.createTextOutput('Error: ' + error.toString());
+  }
+}
+
+// Also add this function to handle GET requests (for testing)
+function doGet(e) {
+  return HtmlService.createHtmlOutput('Form submission endpoint is working!');
+}
