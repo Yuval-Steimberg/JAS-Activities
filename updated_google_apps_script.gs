@@ -3,9 +3,9 @@ var SHEET_URL = 'https://docs.google.com/spreadsheets/d/1piB6K-D-PyNHaG_XNqiHYRl
 var SHEET_NAME = 'טופס מרכזי - לקוחות';
 var ADMIN_EMAIL = 'justasecondil2@gmail.com';
 
-// Redirect URLs - UPDATED FOR NETLIFY PRODUCTION
-var HOME_URL = 'https://jactivities.netlify.app';
-var SUCCESS_URL = 'https://jactivities.netlify.app/success.html';
+// Redirect URLs
+var HOME_URL = 'https://jas-activities.vercel.app';
+var SUCCESS_URL = 'https://jas-activities.vercel.app/success.html';
 
 function doGet(e) {
   var html = '<html><head><meta http-equiv="refresh" content="0; url=\'' + HOME_URL + '\'"/></head><body>Redirecting to ' + HOME_URL + '...</body></html>';
