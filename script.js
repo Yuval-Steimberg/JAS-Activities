@@ -126,10 +126,9 @@ document.addEventListener('DOMContentLoaded', function () {
     attachInlineValidation(phoneEl, (el) => el.validity.patternMismatch ? 'מספר טלפון ישראלי תקין (למשל 052-1234567)' : (el.validity.valueMissing ? 'שדה חובה' : ''));
 
     function showAlert(kind, text) {
-        alertBox.className = '';
+        alertBox.className = 'p-4 rounded-lg text-center mb-4 transition-all duration-300';
         alertBox.classList.add(kind === 'success' ? 'success' : 'error');
         alertBox.textContent = text;
-        alertBox.classList.remove('hidden');
     }
 
     function collectData() {
@@ -342,6 +341,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Ask browser to surface per-field issues too
         if (!form.checkValidity()) {
             form.reportValidity();
+            return;
         }
 
         if (missing.length) {
