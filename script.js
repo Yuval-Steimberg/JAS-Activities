@@ -416,40 +416,13 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('payment_invoice_email', document.getElementById('payment_invoice_email')?.value || '');
         formData.append('notes', document.getElementById('notes')?.value || '');
 
-        // Submit directly to Google Apps Script (bypass JavaScript submission)
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'שולח...';
-
-        // Store data in sessionStorage before redirect
-        const submissionData = {};
+        // Send data to Apps Script in background, then redirect ourselves
+        const params = new URLSearchParams();
         for (const [key, value] of formData.entries()) {
-            submissionData[key] = value;
+            params.append(key, value);
         }
-        sessionStorage.setItem('formSubmission', JSON.stringify(submissionData));
-
-        // Create a real form and submit it (this works reliably on all devices)
-        const realForm = document.createElement('form');
-        realForm.method = 'POST';
-        realForm.action = SCRIPT_URL;
-        realForm.style.display = 'none';
-
-        // Add all form data as hidden inputs
-        for (const [key, value] of formData.entries()) {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = value;
-            realForm.appendChild(input);
-        }
-
-        document.body.appendChild(realForm);
-        
-        // Show message before submission
-        showAlert('success', 'שולח טופס...');
-        
-        // Submit the form - this will navigate to Google's response page
-        // We'll let Google Apps Script handle the redirect
-        realForm.submit();
+        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: params });
+        window.location.href = HOME_URL;
     });
 
     // UI toggles
