@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const dateVal = (document.getElementById('visit_dates')?.value || '').toString();
         if (dateVal) {
-            const selected = new Date(dateVal);
+            const selected = new Date(dateVal + 'T00:00:00');
             const today = new Date();
             today.setHours(0, 0, 0, 0);
             if (selected < today) missing.push('תאריך לא יכול להיות בעבר');
@@ -341,7 +341,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Ask browser to surface per-field issues too
         if (!form.checkValidity()) {
             form.reportValidity();
-            return;
         }
 
         if (missing.length) {
@@ -416,7 +415,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('payment_invoice_email', document.getElementById('payment_invoice_email')?.value || '');
         formData.append('notes', document.getElementById('notes')?.value || '');
 
-        // Send data to Apps Script in background, then redirect ourselves
+        // Send to Google Apps Script in background then redirect
         const params = new URLSearchParams();
         for (const [key, value] of formData.entries()) {
             params.append(key, value);
