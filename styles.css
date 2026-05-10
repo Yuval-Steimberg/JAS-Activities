@@ -4,22 +4,15 @@
 /* Tailwind Imports (if we were using a build step, but here we use CDN, so we override/extend) */
 
 :root {
-    /* Brand Colors - Refined for Premium Feel */
     --color-jas-dark: #2C3E34;
-    /* Deep Forest Green */
     --color-jas-primary: #4E6B5A;
-    /* Original Brand Green */
     --color-jas-light: #8BA897;
-    /* Soft Sage */
     --color-jas-accent: #D4A373;
-    /* Muted Gold/Bronze for accents */
     --color-bg-cream: #F9FAF9;
-    /* Very Light Cream */
     --color-bg-white: #FFFFFF;
     --color-text-main: #2C3E34;
     --color-text-muted: #6B7C73;
 
-    /* Decoration */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
@@ -176,7 +169,7 @@ select.floating-label-input~.floating-label {
 }
 
 .select-wrapper::after {
-    content: '▼';
+    content: '\25BC';
     font-size: 0.8rem;
     color: var(--color-jas-primary);
     position: absolute;
