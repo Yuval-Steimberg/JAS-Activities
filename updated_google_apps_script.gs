@@ -1,7 +1,7 @@
 /***** CONFIG *****/
 var SHEET_URL = 'https://docs.google.com/spreadsheets/d/1piB6K-D-PyNHaG_XNqiHYRlczKJUQW_7dLMg5N51zUc/edit';
 var SHEET_NAME = 'טופס מרכזי - לקוחות';
-var ADMIN_EMAIL = 'justasecondil2@gmail.com';
+var ADMIN_EMAIL = 'justasecond12@gmail.com';
 
 // Redirect URLs
 var HOME_URL = 'https://jas-activities.vercel.app';
@@ -75,15 +75,13 @@ function doPost(e) {
           subject: 'תודה! קיבלנו את הטופס שלך',
           htmlBody: userHtml,
           name: 'JUST A SECOND',
-          replyTo: 'mayaka712@gmail.com'
+          replyTo: 'justasecond12@gmail.com'
         });
       } catch (e2) { }
     }
 
-    // REDIRECT TO SUCCESS PAGE - CRITICAL FOR MOBILE DEVICES
-    // Using window.top.location ensures redirect works in iframes and mobile browsers
     var successHtml = '<html><head>' +
-      '<script>window.top.location.href = "' + SUCCESS_URL + '";</script>' +
+      '<script>window.top.location.href = "' + SUCCESS_URL + '";<\/script>' +
       '<meta http-equiv="refresh" content="0; url=\'' + SUCCESS_URL + '\'"/>' +
       '</head><body>Redirecting...</body></html>';
     return HtmlService.createHtmlOutput(successHtml);
