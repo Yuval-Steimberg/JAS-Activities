@@ -4,31 +4,24 @@
 /* Tailwind Imports (if we were using a build step, but here we use CDN, so we override/extend) */
 
 :root {
-    /* Brand Colors - Refined for Premium Feel */
-    --color-jas-dark: #2C3E34;
-    /* Deep Forest Green */
-    --color-jas-primary: #4E6B5A;
-    /* Original Brand Green */
-    --color-jas-light: #8BA897;
-    /* Soft Sage */
-    --color-jas-accent: #D4A373;
-    /* Muted Gold/Bronze for accents */
-    --color-bg-cream: #F9FAF9;
-    /* Very Light Cream */
+    --color-jas-dark: #2D4845;
+    --color-jas-primary: #C8682E;
+    --color-jas-light: #E8956A;
+    --color-jas-accent: #3F6260;
+    --color-bg-cream: #FAF3EB;
     --color-bg-white: #FFFFFF;
-    --color-text-main: #2C3E34;
-    --color-text-muted: #6B7C73;
+    --color-text-main: #1A1A1A;
+    --color-text-muted: #6B5E55;
 
-    /* Decoration */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 32px;
 
-    --shadow-sm: 0 2px 8px rgba(44, 62, 52, 0.05);
-    --shadow-md: 0 8px 24px rgba(44, 62, 52, 0.08);
-    --shadow-lg: 0 16px 48px rgba(44, 62, 52, 0.12);
-    --shadow-floating: 0 20px 60px rgba(44, 62, 52, 0.15);
+    --shadow-sm: 0 2px 8px rgba(45, 72, 69, 0.05);
+    --shadow-md: 0 8px 24px rgba(45, 72, 69, 0.08);
+    --shadow-lg: 0 16px 48px rgba(45, 72, 69, 0.12);
+    --shadow-floating: 0 20px 60px rgba(45, 72, 69, 0.15);
 
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -40,8 +33,8 @@ body {
     color: var(--color-text-main);
     background-color: var(--color-bg-cream);
     background-image:
-        radial-gradient(circle at 10% 10%, rgba(78, 107, 90, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, rgba(212, 163, 115, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 10% 10%, rgba(200, 104, 46, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(63, 98, 96, 0.04) 0%, transparent 50%);
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -82,7 +75,7 @@ h6 {
     border-radius: var(--radius-md);
     padding: 2rem;
     box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(78, 107, 90, 0.08);
+    border: 1px solid rgba(200, 104, 46, 0.08);
     transition: var(--transition-smooth);
     margin-bottom: 2rem;
     position: relative;
@@ -124,7 +117,7 @@ h6 {
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, rgba(78, 107, 90, 0.2), transparent);
+    background: linear-gradient(90deg, rgba(200, 104, 46, 0.2), transparent);
 }
 
 /* Form Elements */
@@ -138,7 +131,7 @@ h6 {
     padding: 1rem 1.25rem;
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
-    border: 1px solid rgba(78, 107, 90, 0.2);
+    border: 1px solid rgba(200, 104, 46, 0.2);
     border-radius: var(--radius-sm);
     background: #fff;
     font-size: 1rem;
@@ -149,7 +142,7 @@ h6 {
 
 .floating-label-input:focus {
     border-color: var(--color-jas-primary);
-    box-shadow: 0 0 0 4px rgba(78, 107, 90, 0.1);
+    box-shadow: 0 0 0 4px rgba(200, 104, 46, 0.1);
 }
 
 .floating-label {
@@ -176,7 +169,7 @@ select.floating-label-input~.floating-label {
 }
 
 .select-wrapper::after {
-    content: '▼';
+    content: '\25BC';
     font-size: 0.8rem;
     color: var(--color-jas-primary);
     position: absolute;
@@ -191,7 +184,7 @@ select.floating-label-input~.floating-label {
     display: flex;
     align-items: center;
     padding: 1rem;
-    border: 1px solid rgba(78, 107, 90, 0.15);
+    border: 1px solid rgba(200, 104, 46, 0.15);
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: var(--transition-fast);
@@ -200,7 +193,7 @@ select.floating-label-input~.floating-label {
 }
 
 .choice-card:hover {
-    background: rgba(78, 107, 90, 0.03);
+    background: rgba(200, 104, 46, 0.03);
     border-color: var(--color-jas-primary);
 }
 
@@ -212,7 +205,7 @@ select.floating-label-input~.floating-label {
 }
 
 .choice-card-selected {
-    background: rgba(78, 107, 90, 0.08);
+    background: rgba(200, 104, 46, 0.08);
     border-color: var(--color-jas-primary);
     box-shadow: 0 0 0 1px var(--color-jas-primary);
 }
@@ -227,7 +220,7 @@ select.floating-label-input~.floating-label {
     width: 100%;
     border: none;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(78, 107, 90, 0.25);
+    box-shadow: 0 10px 20px rgba(200, 104, 46, 0.25);
     transition: var(--transition-smooth);
     font-size: 1.1rem;
     letter-spacing: 0.02em;
@@ -249,7 +242,7 @@ select.floating-label-input~.floating-label {
 
 .btn-premium:hover {
     transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(78, 107, 90, 0.3);
+    box-shadow: 0 14px 28px rgba(200, 104, 46, 0.3);
 }
 
 .btn-premium:hover::before {
